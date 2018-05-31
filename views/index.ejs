@@ -1,6 +1,14 @@
 <html lang="en">
+<link rel="stylesheet" href="stylesheets/style.css" />
 <body>
-    <h1>New Project</h1>
-    <img src="<%= url %>">
+    <div class="flexbox">
+    <% urls_array.forEach(function(urls, key){ %>
+        <div class="item">
+            <a href="<%= urls['link_url'] %>">
+            <img src="<%= urls['image_url'] %>" />
+            </a>
+        </div>
+    <% }) %>
+    </div>
 </body>
 </html>

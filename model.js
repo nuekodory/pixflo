@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 // スキーマ
 var ImageURL = new Schema({
     _id: Number,
-    url_string: String
+    image_url: String
 });
 
 // MongoDBへの接続

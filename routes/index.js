@@ -7,7 +7,8 @@ var Schema = mongoose.Schema;
 
 var ImageURL = new Schema({
     user_id   : Number,
-    url_string: String
+    image_url : String,
+    link_url  : String
 });
 
 var Url = mongoose.model('url', ImageURL);
@@ -18,12 +19,9 @@ router.get('/', function(req, res, next) {
     mongoose.Promise = global.Promise;
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'Connection Error'));
-    var url_list = [];
-    Url.find({ user_id: 1 }, 'url_string', function (err, urls) {
-        urls.forEach( function (element) {
-            url_list.push(element.url_string)
-        });
-        res.render('index', { title: 'Express', url: url_list });
+
+    Url.find({}, function (err, urls_array) {
+        res.render('index', { title: 'Express', urls_array: urls_array });
     });
 
 

@@ -3,6 +3,20 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.flexbox {
+    display: flex;
+    display: -webkit-flex;
+    align-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 100vw;
+}
+.flexbox img {
+    width: 300px;
+    max-height: 400px;
+}
+
 a {
   color: #00B7FF;
 }

@@ -6,10 +6,12 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@ajusa/lit": "^1.1.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "^2.6.1",
     "express": "~4.16.0",
+    "flexbox": "0.0.3",
     "http-errors": "~1.6.2",
     "mongodb": "^3.1.0-beta4",
     "mongoose": "^5.1.3",
