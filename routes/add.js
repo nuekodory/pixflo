@@ -16,8 +16,7 @@ const Url = connection.model('url', ImageURL);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    mongoose.connect(mongo_path);
-    mongoose.Promise = global.Promise;
+    const promise = mongoose.connect(mongo_path);
     const db = mongoose.connection;
     db.on('error', console.error.bind(console, 'Connection Error'));
 

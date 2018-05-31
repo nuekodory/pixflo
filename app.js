@@ -6,6 +6,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users/register');
+const myPageRouter = require('./routes/index');
 const addRouter = require('./routes/add');
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(/^(\d+)$/, myPageRouter);
 app.use('/', indexRouter);
 app.use('/add', addRouter);
 
