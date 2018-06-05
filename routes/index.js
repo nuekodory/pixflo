@@ -7,9 +7,14 @@ const connection = mongoose.createConnection(mongo_path);
 const Schema = mongoose.Schema;
 
 const ImageURL = new Schema({
-    user_id   : Number,
-    image_url : String,
-    link_url  : String,
+    user_id         : Number,
+    contain_porn    : Boolean,
+    contain_violence: Boolean,
+    contain_gore    : Boolean,
+    date_created    : Date,
+    date_modified   : Date,
+    image_url       : String,
+    link_url        : String,
 });
 
 const Following = new Schema({
@@ -30,7 +35,7 @@ router.get('/', function(req, res, next) {
         const follows = follows_array[0].following_ids;
         Url.find({user_id: follows}, function (err, urls_array) {
             res.render('index', { title: 'Express', urls_array: urls_array });
-        });
+        }).sort({date_modified: -1}).limit(10000);
     });
 
 
